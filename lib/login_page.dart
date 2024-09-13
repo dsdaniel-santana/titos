@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'cadastro.dart'; // Certifique-se de importar a página de cadastro
+import 'principal.dart';
+ 
 class Logintito extends StatelessWidget {
   const Logintito({super.key});
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +31,7 @@ class Logintito extends StatelessWidget {
                           height: 143,
                           width: double.infinity,
                           child: Image.network(
-                            "/image/logo.png", // Substitua pela URL real ou use assets
+                            "/images/titoslogo.png", // Substitua pela URL real ou use assets
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -135,6 +138,26 @@ class Logintito extends StatelessWidget {
                               "Cadastre-se",
                               style: TextStyle(
                                 color: Color(0xFF555555),
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ),
+// vai pro principal
+                        Center(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Principal(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              "Principal",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 247, 154, 154),
                                 fontSize: 16,
                               ),
                             ),
