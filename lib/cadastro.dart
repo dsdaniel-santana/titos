@@ -10,14 +10,14 @@
 // Se não desabilitar a segurança, não vai exibir os dados. Só no celular
 // por causa do navegador
 import 'package:flutter/material.dart';
- 
+
 class CadastroPage extends StatefulWidget {
   const CadastroPage({super.key});
- 
+
   @override
   _CadastroPageState createState() => _CadastroPageState();
 }
- 
+
 class _CadastroPageState extends State<CadastroPage> {
   // Controladores para capturar os valores dos campos de texto
   final TextEditingController _nomeController = TextEditingController();
@@ -28,7 +28,7 @@ class _CadastroPageState extends State<CadastroPage> {
   final TextEditingController _senhaController = TextEditingController();
   final TextEditingController _confirmarSenhaController =
       TextEditingController();
- 
+
   // Função que chamará a API para realizar o cadastro
   Future<void> _cadastrar() async {
     final nome = _nomeController.text;
@@ -37,7 +37,7 @@ class _CadastroPageState extends State<CadastroPage> {
     final email = _emailController.text;
     final senha = _senhaController.text;
     final confirmarSenha = _confirmarSenhaController.text;
- 
+
     // Validação simples
     if (senha != confirmarSenha) {
       // Exibir uma mensagem de erro caso as senhas não coincidam
@@ -46,7 +46,7 @@ class _CadastroPageState extends State<CadastroPage> {
       );
       return;
     }
- 
+
     // Chamada da API para registrar o usuário (ajustar para
     // o endpoint correto)
     try {
@@ -63,7 +63,7 @@ class _CadastroPageState extends State<CadastroPage> {
           'senha': senha,
         },
       );
- 
+
       if (response.statusCode == 200) {
         // Sucesso no cadastro
         ScaffoldMessenger.of(context).showSnackBar(
@@ -83,13 +83,13 @@ class _CadastroPageState extends State<CadastroPage> {
       );
     }
   }
- 
+
   @override
   Widget build(BuildContext context) {
     // widget Scaffold implementa a estrutura do layout visual
     // do Material Design básico e permite definir outros widgets
     // do Material Design no seu interior
- 
+
     return Scaffold(
       body: SafeArea(
         // O widget SafeArea adiciona automaticamente preenchimento
@@ -118,12 +118,12 @@ class _CadastroPageState extends State<CadastroPage> {
                             width: 292,
                             height: 76,
                             child: Image.network(
-                              "/image/logo.png",
+                              "/images/titoslogo.png",
                               fit: BoxFit.fill,
                             ),
                           ),
                         ),
- 
+
                         // Título da página
                         Container(
                           margin: EdgeInsets.only(bottom: 43, left: 28),
@@ -136,7 +136,7 @@ class _CadastroPageState extends State<CadastroPage> {
                             ),
                           ),
                         ),
- 
+
                         // Campos de texto
                         buildTextField("Nome completo", _nomeController),
                         buildTextField(
@@ -148,7 +148,7 @@ class _CadastroPageState extends State<CadastroPage> {
                         buildTextField(
                             "Confirmar senha", _confirmarSenhaController,
                             obscureText: true),
- 
+
                         // Botão de cadastro
                         GestureDetector(
                           onTap: _cadastrar,
@@ -183,7 +183,7 @@ class _CadastroPageState extends State<CadastroPage> {
       ),
     );
   }
- 
+
   Widget buildTextField(String label, TextEditingController controller,
       {bool obscureText = false}) {
     return Container(

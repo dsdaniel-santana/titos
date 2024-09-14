@@ -8,9 +8,10 @@
 // flutter run --web-browser-flag "--disable-web-security"
 // Se não desabilitar a segurança, não vai exibir os dados. Só no celular
 // por causa do navegador
- 
+
 import 'package:flutter/material.dart';
- 
+import 'package:titos/perfil.dart';
+
 class Principal extends StatelessWidget {
   const Principal({super.key});
   @override
@@ -210,110 +211,6 @@ class Principal extends StatelessWidget {
                                   ]),
                             ),
                           ),
-                          IntrinsicHeight(
-                            child: Container(
-                              margin: EdgeInsets.only(
-                                  bottom: 23, left: 22, right: 22),
-                              width: double.infinity,
-                              child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    IntrinsicHeight(
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          color: Color(0xFFF2F2F2),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Color(0x40000000),
-                                              blurRadius: 4,
-                                              offset: Offset(0, 4),
-                                            ),
-                                          ],
-                                        ),
-                                        padding:
-                                            EdgeInsets.symmetric(vertical: 13),
-                                        width: 163,
-                                        child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                  margin: EdgeInsets.only(
-                                                      bottom: 7,
-                                                      left: 56,
-                                                      right: 56),
-                                                  height: 50,
-                                                  width: double.infinity,
-                                                  child: Image.network(
-                                                    "https://i.imgur.com/1tMFzp8.png",
-                                                    fit: BoxFit.fill,
-                                                  )),
-                                              Container(
-                                                margin:
-                                                    EdgeInsets.only(left: 36),
-                                                child: Text(
-                                                  "Sobremesas",
-                                                  style: TextStyle(
-                                                    color: Color(0xFF555555),
-                                                    fontSize: 16,
-                                                  ),
-                                                ),
-                                              ),
-                                            ]),
-                                      ),
-                                    ),
-                                    IntrinsicHeight(
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          color: Color(0xFFF2F2F2),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Color(0x40000000),
-                                              blurRadius: 4,
-                                              offset: Offset(0, 4),
-                                            ),
-                                          ],
-                                        ),
-                                        padding:
-                                            EdgeInsets.symmetric(vertical: 13),
-                                        width: 163,
-                                        child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                  margin: EdgeInsets.only(
-                                                      bottom: 7,
-                                                      left: 55,
-                                                      right: 55),
-                                                  height: 50,
-                                                  width: double.infinity,
-                                                  child: Image.network(
-                                                    "https://i.imgur.com/1tMFzp8.png",
-                                                    fit: BoxFit.fill,
-                                                  )),
-                                              Container(
-                                                margin:
-                                                    EdgeInsets.only(left: 8),
-                                                child: Text(
-                                                  "Acompanhamentos",
-                                                  style: TextStyle(
-                                                    color: Color(0xFF555555),
-                                                    fontSize: 16,
-                                                  ),
-                                                ),
-                                              ),
-                                            ]),
-                                      ),
-                                    ),
-                                  ]),
-                            ),
-                          ),
                           Container(
                             margin: EdgeInsets.only(bottom: 18, left: 26),
                             child: Text(
@@ -444,64 +341,55 @@ class Principal extends StatelessWidget {
                                   ]),
                             ),
                           ),
-                          IntrinsicHeight(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0xFFFFFFFF),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x40000000),
-                                    blurRadius: 4,
-                                    offset: Offset(0, 4),
-                                  ),
-                                ],
-                              ),
-                              padding: EdgeInsets.only(
-                                  top: 30, bottom: 19, left: 18, right: 18),
-                              margin: EdgeInsets.only(
-                                  bottom: 19, left: 24, right: 24),
-                              width: double.infinity,
-                              child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    IntrinsicHeight(
-                                      child: Container(
-                                        margin:
-                                            EdgeInsets.only(top: 3, right: 17),
-                                        width: 36,
-                               
-                                      ),
-                                    ),
-                                    Container(
-                                      color: Color(0xFFF2F2F2),
-                                      margin: EdgeInsets.only(right: 11),
-                                      width: 1,
-                                      height: 56,
-                                      child: SizedBox(),
-                                    ),
-                                    Container(
-                                        margin: EdgeInsets.only(top: 2),
-                                        width: 50,
-                                        height: 50,
-                                        child: Image.network(
-                                          "https://i.imgur.com/1tMFzp8.png",
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ]),
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 18),
-                            width: 342,
-                            height: 106,
-                          ),
                         ],
                       )),
                 ),
               ),
             ],
           ),
+        ),
+      ),
+      // aqui inserimos o menu de rodapé - Fica depois do fechamento
+      // do Safearea
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              icon: Icon(Icons.home),
+              color: Color(0xFFB50E22),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Principal()),
+                );
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.assignment),
+              color: Color(0xFFB50E22),
+              onPressed: () {
+                // Adicione a ação para o ícone Search aqui
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.account_circle),
+              color: Color(0xFFB50E22),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Perfil()),
+                );
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.format_list_bulleted_sharp),
+              color: Color(0xFFB50E22),
+              onPressed: () {
+                // Adicione a ação para o ícone Profile aqui
+              },
+            ),
+          ],
         ),
       ),
     );

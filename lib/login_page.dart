@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'cadastro.dart'; // Certifique-se de importar a página de cadastro
 import 'principal.dart';
- 
+import 'perfil.dart';
+
 class Logintito extends StatelessWidget {
   const Logintito({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,12 +151,12 @@ class Logintito extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Principal(),
+                                  builder: (context) => Perfil(),
                                 ),
                               );
                             },
                             child: Text(
-                              "Principal",
+                              "Perfil",
                               style: TextStyle(
                                 color: Color.fromARGB(255, 247, 154, 154),
                                 fontSize: 16,
